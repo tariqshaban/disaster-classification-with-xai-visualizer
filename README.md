@@ -7,6 +7,9 @@ annotations.
 
 To view a live example, [click here](https://tariqshaban.github.io/disaster-classification-with-xai-visualizer/).
 
+> NOTE: The environment that the current web application is deployed on **cannot sustain multiple concurrent requests**.
+> Also, the request takes a considerable amount of time to process, allow up to 80 seconds.
+
 Getting Started
 ------------
 Clone the project from GitHub
