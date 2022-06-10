@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-lg-8">
+        <div class="jumbotron">
+            <div class="d-flex justify-content-between">
+                <h3 style="color: red;" *ngIf="timeout">Could not connect to the remote server</h3>
+                <mat-chip-list *ngIf="classificationResult" class="disaster-chips">
+                    <mat-chip #chip1 id="infrastructure" [selected]="chip1.id==classificationResult" disableRipple>infrastructure</mat-chip>
+                    <mat-chip #chip2 id="land_slide" [selected]="chip2.id==classificationResult" disableRipple>land slide</mat-chip>
+                    <mat-chip #chip3 id="non_damage_buildings_street" [selected]="chip3.id==classificationResult" disableRipple>non damaged buildings street</mat-chip>
+                    <mat-chip #chip4 id="non_damage_wildlife_forest" [selected]="chip4.id==classificationResult" disableRipple>non damaged wildlife forest</mat-chip>
+                    <mat-chip #chip5 id="sea" [selected]="chip5.id==classificationResult" disableRipple>sea</mat-chip>
+                    <mat-chip #chip6 id="urban_fire" [selected]="chip6.id==classificationResult" disableRipple>urban fire</mat-chip>
+                    <mat-chip #chip7 id="water_disaster" [selected]="chip7.id==classificationResult" disableRipple>water disaster</mat-chip>
+                    <mat-chip #chip8 id="wild_fire" [selected]="chip8.id==classificationResult" disableRipple>wild fire</mat-chip>
+                </mat-chip-list>
+                <h3 *ngIf="!classificationResult && !timeout">The classification and images will be displayed here</h3>
+                <mat-spinner *ngIf="isHTTPRequesting" [diameter]="30"></mat-spinner>
+            </div>
+            <hr class="mt-0 pt-0">
+            <div *ngIf="classificationResult">
+                <div>
+                    <h2>Original Image</h2>
+                    <img class="original-image" src={{original}} />
+                </div>
+                <hr class="mt-0 pt-0">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Lime Algorithm</h2>
+                            <img src={{lime}} />
+                        </div>
+                        <div class="col">
+                            <h2>GradeCAM Algorithm</h2>
+                            <img src={{gradCam}} />
+                        </div>
+                        <div class="col">
+                            <h2>GradeCAM++ Algorithm</h2>
+                            <img src={{gradCamPlusPlus}} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="drop-container jumbotron" (dragover)="onDragOver($event)" (drop)="onDropSuccess($event)" (click)="onUploadClick()">
+            <mat-icon class="upload-display">file_upload</mat-icon>
+            <h1 class="upload-text-display">{{uploadStatus}}</h1>
+
+            <input #uploadForm class="custom-file-upload" (change)="onChange($event)" type="file" accept="image/*" />
+        </div>
+    </div>
+</div>
