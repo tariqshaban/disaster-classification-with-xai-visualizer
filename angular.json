@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "sports-data-visualizer": {
+        "disaster-classification-with-xai-visualizer": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:application": {
@@ -70,10 +70,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "sports-data-visualizer:build:production"
+                            "browserTarget": "disaster-classification-with-xai-visualizer:build:production"
                         },
                         "development": {
-                            "browserTarget": "sports-data-visualizer:build:development"
+                            "browserTarget": "disaster-classification-with-xai-visualizer:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "sports-data-visualizer:build"
+                        "browserTarget": "disaster-classification-with-xai-visualizer:build"
                     }
                 },
                 "test": {
@@ -104,5 +104,5 @@
             }
         }
     },
-    "defaultProject": "sports-data-visualizer"
+    "defaultProject": "disaster-classification-with-xai-visualizer"
 }
